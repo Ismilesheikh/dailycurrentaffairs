@@ -86,6 +86,7 @@ async function getUsers() {
   
           // Example data for students
           const exampleData = [];
+          const picLinks=[];
   for(let i=0;i<=totalStudent-1;i++){
    let newStudent= { data1: [[data[30*i+5].C, data[30*i+5].D], [data[30*i+6].C, data[30*i+6].D], [data[30*i+7].C, data[30*i+7].D], [data[30*i+8].C, data[30*i+8].D], [data[30*i+9].C, data[30*i+9].D], [data[30*i+10].C, data[30*i+10].D],[data[30*i+11].C, data[30*i+11].D]],
      data2: [[data[30*i+12].C, data[30*i+12].D,data[30*i+12].E,data[30*i+12].F,data[30*i+12].G,data[30*i+12].H,data[30*i+12].I], [data[30*i+13].C, data[30*i+13].D,data[30*i+13].E,data[30*i+13].F,data[30*i+13].G,data[30*i+13].H,data[30*i+13].I]],
@@ -106,15 +107,16 @@ async function getUsers() {
                     
       ] };
       exampleData.push(newStudent);
+      picLinks.push(data[30*i+5].I);
   }
   
   
           // Iterate and create 3 tables for each student
-          exampleData.forEach((studentData, index) => {
+          exampleData.forEach((studentData,index) => {
               const studentDiv = document.createElement('div');
               studentDiv.className = `studentTables student${index + 1}`;
               const profilePic=document.createElement('img');
-              profilePic.src='https://th.bing.com/th/id/OIP.dto_UknSThfSRMLbtm2PGQHaHh?dpr=2.8&pid=ImgDetMain';
+              profilePic.src=picLinks[index];
               profilePic.alt="";
            studentDiv.appendChild(profilePic);
               tablesDiv.appendChild(studentDiv);
